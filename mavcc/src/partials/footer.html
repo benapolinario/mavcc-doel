@@ -1,0 +1,69 @@
+<footer class="m-footer">
+  <div class="wrap">
+    <div class="m-footer-grid">
+      <div>
+        <h2 style="font-family:var(--f-display);font-size:var(--t-2xl)">Metro Atlanta Veterans' Chamber of Commerce</h2>
+        <p style="margin-top:var(--s-4);color:var(--c-on-navy-soft);max-width:40ch">
+          Empowering veterans and veteran businesses across the Atlanta community.
+        </p>
+        <address>
+          10 Glenlake Parkway NE, Suite 130<br>
+          Atlanta, GA 30328
+        </address>
+      </div>
+
+      <div>
+        <h3>Chamber</h3>
+        <nav aria-label="Footer">
+          <a href="/home">Home</a>
+          <a href="/about">About</a>
+          <a href="/events">Events</a>
+          <a href="/membership">Membership</a>
+          <a href="/programs">Programs</a>
+          <a href="/resources">Resources</a>
+        </nav>
+      </div>
+
+      <div id="newsletter">
+        <h3>Newsletter</h3>
+        <p style="margin-top:var(--s-4);color:var(--c-on-navy-soft)">
+          Event announcements, member news, and contracting opportunities. Monthly, no more.
+        </p>
+
+        <!-- NEWSLETTER
+             Option A (default, below): native field + validation, posts to `action`.
+             Option B: replace this <form> with a GHL form iframe — see README §4. -->
+        <form class="m-news on-navy" data-news method="post" action="#" style="margin-top:var(--s-5)">
+          <div class="m-field">
+            <label for="news-email">Email address</label>
+            <input class="m-input" id="news-email" name="email" type="email"
+                   autocomplete="email" required placeholder="you@company.com"
+                   aria-describedby="news-hint news-error">
+            <span class="hint" id="news-hint">We never share your address.</span>
+            <span class="m-error" id="news-error" data-news-error role="alert" hidden></span>
+            <span class="m-ok" data-news-ok role="status" hidden>Thanks — check your inbox to confirm.</span>
+          </div>
+          <button class="btn btn--gold" type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="m-footer-base">
+      <span>© 2026 MAVCC. All rights reserved.</span>
+      <span><a href="/privacy">Privacy policy</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="m-modal" data-modal aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="m-modal-title">
+  <div class="m-modal-panel">
+    <button class="m-modal-close" type="button" data-modal-close>
+      <span class="visually-hidden">Close</span>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <h2 id="m-modal-title" data-modal-title style="font-size:var(--t-2xl);padding-right:var(--s-8)">Form</h2>
+    <div style="margin-top:var(--s-5)">
+      <iframe data-modal-frame title="Form" loading="lazy" style="min-height:560px"></iframe>
+    </div>
+  </div>
+</div>

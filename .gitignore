@@ -1,0 +1,20 @@
+# dependencies
+node_modules/
+
+# local preview / build noise
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
+
+# editor
+.vscode/
+.idea/
+
+# environment — never commit secrets
+.env
+.env.*
+!.env.example
+
+# dist/ IS committed on purpose: it is the browser preview of the built pages.
+# blocks/ IS committed on purpose: those are the files pasted into GHL.
