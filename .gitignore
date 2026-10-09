@@ -18,3 +18,4 @@ npm-debug.log*
 
 # dist/ IS committed on purpose: it is the browser preview of the built pages.
 # blocks/ IS committed on purpose: those are the files pasted into GHL.
+gambini-law/work/fonts/
