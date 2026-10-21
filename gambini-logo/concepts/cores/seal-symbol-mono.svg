@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256"><defs>
+<linearGradient id="glow" x1="0" y1="1" x2="0" y2="0">
+ <stop offset="0" stop-color="#FFE7C2"/><stop offset=".45" stop-color="#F3CFE0"/><stop offset="1" stop-color="#B9A4D6"/></linearGradient>
+<radialGradient id="sun" cx=".5" cy=".72" r=".45"><stop offset="0" stop-color="#FFF6E6"/><stop offset="1" stop-color="#FFF6E6" stop-opacity="0"/></radialGradient>
+<linearGradient id="metal" x1="0" y1="0" x2="0" y2="1">
+ <stop offset="0" stop-color="#A895C2"/><stop offset=".5" stop-color="#6E5A88"/><stop offset="1" stop-color="#4A3558"/></linearGradient>
+<linearGradient id="silver" x1="0" y1="0" x2="0" y2="1">
+ <stop offset="0" stop-color="#D9D0E6"/><stop offset=".35" stop-color="#9A88B4"/><stop offset=".55" stop-color="#E4DCEE"/><stop offset="1" stop-color="#5E4A78"/></linearGradient>
+</defs><g transform="translate(18.0,25.0) scale(2.2000)"><path d="M50.00,1.00 Q55.40,3.95 61.39,2.50 Q65.84,6.75 72.00,6.89 Q75.20,12.16 81.11,13.89 Q82.84,19.80 88.11,23.00 Q88.25,29.16 92.50,33.61 Q91.05,39.60 94.00,45.00 Q91.05,50.40 92.50,56.39 Q88.25,60.84 88.11,67.00 Q82.84,70.20 81.11,76.11 Q75.20,77.84 72.00,83.11 Q65.84,83.25 61.39,87.50 Q55.40,86.05 50.00,89.00 Q44.60,86.05 38.61,87.50 Q34.16,83.25 28.00,83.11 Q24.80,77.84 18.89,76.11 Q17.16,70.20 11.89,67.00 Q11.75,60.84 7.50,56.39 Q8.95,50.40 6.00,45.00 Q8.95,39.60 7.50,33.61 Q11.75,29.16 11.89,23.00 Q17.16,19.80 18.89,13.89 Q24.80,12.16 28.00,6.89 Q34.16,6.75 38.61,2.50 Q44.60,3.95 50.00,1.00 Z" fill="#000"/><g transform="translate(9.5,4) scale(0.82)"><g fill="#fff">
+ <circle cx="27" cy="33" r="3.6"/><circle cx="42" cy="25.5" r="4"/><circle cx="56.5" cy="40" r="3.1"/><circle cx="70" cy="37" r="3.5"/></g>
+<g stroke="#fff" stroke-linecap="round" stroke-linejoin="round" fill="none">
+ <path d="M27,39 L27,50 M25.4,50 L25,62 M28.6,50 L29.4,62" stroke-width="4.6"/>
+ <path d="M21.5,47 L20,62" stroke-width="1.6"/>
+ <path d="M42,31.5 L42,46 M40.2,46 L39.6,62 M43.8,46 L44.6,62" stroke-width="5.2"/>
+ <path d="M56.5,45 L56.5,52 M55.3,52 L55,62 M57.7,52 L58,62" stroke-width="3.6"/>
+ <path d="M69.6,42 L69.6,50 L76,50 L76,58" stroke-width="5"/>
+ <circle cx="70" cy="56" r="5.8" stroke-width="1.7"/>
+ <path d="M30,44 L39,41 M45,41 L54.5,47 M58.5,47 L65.5,45.5" stroke-width="1.8"/>
+ <path d="M14,62.5 L86,62.5" stroke-width="1.4"/>
+</g></g><circle cx="50" cy="45" r="35" fill="none" stroke="#fff" stroke-width="1.4"/></g></svg>

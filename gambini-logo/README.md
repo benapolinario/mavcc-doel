@@ -21,3 +21,11 @@ Overview: `concepts/variations/variations.png`. Each has `-color` and `-mono` SV
 - C1 Line-art heart · C2 Stacked · C3 Heart tip into swash
 
 Rebuild: `GAMBINI_FONTS=<font dir> python3 variations.py && python3 sheet.py`
+
+## Round 3 — new core symbols (heart versions kept)
+Overview: `concepts/cores/cores.png`. Each core in A, B, C and A3 layouts, `-color` and `-mono`.
+- Guardian Arch — a home doorway sheltering four generations (estate + guardianship)
+- Legacy Seal — the wax seal on a signed will (estate planning, probate)
+- Family Crest — protection + the Gambini family name
+
+Rebuild: `GAMBINI_FONTS=<font dir> python3 cores.py`

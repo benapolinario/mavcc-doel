@@ -26,16 +26,19 @@ def family(ink):
  <path d="M30,44 L39,41 M45,41 L54.5,47 M58.5,47 L65.5,45.5" stroke-width="1.8"/>
  <path d="M14,62.5 L86,62.5" stroke-width="1.4"/>
 </g>'''
+# The core symbol. Defaults to the heart; cores.py swaps in other shapes.
+CORE={'shape':HEART,'fam':'','extra':lambda ink:''}
 def heart(cx,cy,w,mode='color'):
-    k=w/100; x=cx-50*k; y=cy-45*k
+    k=w/100; x=cx-50*k; y=cy-45*k; S=CORE['shape']
+    fam=lambda ink:f'<g transform="{CORE["fam"]}">{family(ink)}</g>'
     if mode=='color':
-        body=f'<path d="{HEART}" fill="url(#glow)"/><path d="{HEART}" fill="url(#sun)"/>'+family(PLUM)+f'<path d="{HEART}" fill="none" stroke="{PLUM}" stroke-width="2.2"/>'
+        body=f'<path d="{S}" fill="url(#glow)"/><path d="{S}" fill="url(#sun)"/>'+fam(PLUM)+CORE['extra'](PLUM)+f'<path d="{S}" fill="none" stroke="{PLUM}" stroke-width="2.2"/>'
     elif mode=='line':
-        body=f'<path d="{HEART}" fill="#fff" stroke="{PLUM}" stroke-width="3.4"/>'+family(PLUM)
+        body=f'<path d="{S}" fill="#fff" stroke="{PLUM}" stroke-width="3.4"/>'+fam(PLUM)+CORE['extra'](PLUM)
     elif mode=='mono':
-        body=f'<path d="{HEART}" fill="#000"/>'+family('#fff')
-    else: # tiny: heart only
-        body=f'<path d="{HEART}" fill="{mode}"/>'
+        body=f'<path d="{S}" fill="#000"/>'+fam('#fff')+CORE['extra']('#fff')
+    else: # tiny: shape only
+        body=f'<path d="{S}" fill="{mode}"/>'
     return f'<g transform="translate({x:.1f},{y:.1f}) scale({k:.4f})">{body}</g>'
 def txt(s,font,size,x,y,fill,tr=0):
     d,w=glyphs.text_path(s,font,size,x,y,tr); return f'<path d="{d}" fill="{fill}"/>',w
