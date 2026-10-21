@@ -39,7 +39,7 @@ CORES = {
 
 def use(core):
     c = CORES[core]
-    build.CORE.update(shape=c['shape'], fam=c['fam'], extra=c['extra'])
+    build.CORE.update(shape=c['shape'], fam=c['fam'], extra=c.get('extra', lambda ink: ''), fam_out=c.get('fam_out', False))
 
 def symbol(mode):
     return svg(256, 256, heart(128, 124, 220, mode), bg=None)

@@ -27,14 +27,19 @@ def family(ink):
  <path d="M14,62.5 L86,62.5" stroke-width="1.4"/>
 </g>'''
 # The core symbol. Defaults to the heart; cores.py swaps in other shapes.
-CORE={'shape':HEART,'fam':'','extra':lambda ink:''}
+CORE={'shape':HEART,'fam':'','extra':lambda ink:'','fam_out':False}
 def heart(cx,cy,w,mode='color'):
     k=w/100; x=cx-50*k; y=cy-45*k; S=CORE['shape']
-    fam=lambda ink:f'<g transform="{CORE["fam"]}">{family(ink)}</g>'
+    def fam(ink):
+        if CORE['fam'] is None: return ''
+        if CORE.get('fam_out'): ink='#000' if mode=='mono' else PLUM  # family stands outside the shape
+        return f'<g transform="{CORE["fam"]}">{family(ink)}</g>'
     if mode=='color':
         body=f'<path d="{S}" fill="url(#glow)"/><path d="{S}" fill="url(#sun)"/>'+fam(PLUM)+CORE['extra'](PLUM)+f'<path d="{S}" fill="none" stroke="{PLUM}" stroke-width="2.2"/>'
     elif mode=='line':
         body=f'<path d="{S}" fill="#fff" stroke="{PLUM}" stroke-width="3.4"/>'+fam(PLUM)+CORE['extra'](PLUM)
+    elif mode=='solid':
+        body=f'<path d="{S}" fill="{PLUM}"/>'+fam('#fff')+CORE['extra']('#fff')
     elif mode=='mono':
         body=f'<path d="{S}" fill="#000"/>'+fam('#fff')+CORE['extra']('#fff')
     else: # tiny: shape only

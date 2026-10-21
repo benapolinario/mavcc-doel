@@ -29,3 +29,9 @@ Overview: `concepts/cores/cores.png`. Each core in A, B, C and A3 layouts, `-col
 - Family Crest — protection + the Gambini family name
 
 Rebuild: `GAMBINI_FONTS=<font dir> python3 cores.py`
+
+## Round 4 — 6 symbols × 3 variations
+Overview: `concepts/round4/round4.png`. Symbols: Seal, Arch, Crest, Key, Quill, Hands.
+Variations: v1 Glow (horizontal) · v2 Line art (horizontal) · v3 Solid plum (stacked). Each `-color` and `-mono`.
+
+Rebuild: `GAMBINI_FONTS=<font dir> python3 round4.py`
