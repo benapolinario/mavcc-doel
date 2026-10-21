@@ -3,7 +3,7 @@ from fontTools.pens.svgPathPen import SVGPathPen
 from fontTools.pens.transformPen import TransformPen
 from fontTools.pens.boundsPen import BoundsPen
 import os
-FD=os.path.join(os.path.dirname(__file__),'..','fonts')
+FD=os.environ.get('GAMBINI_FONTS',os.path.join(os.path.dirname(__file__),'..','fonts'))
 _c={}
 def font(n):
     if n not in _c: _c[n]=TTFont(os.path.join(FD,n))

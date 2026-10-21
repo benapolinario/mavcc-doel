@@ -8,6 +8,8 @@ DEFS='''<defs>
 <radialGradient id="sun" cx=".5" cy=".72" r=".45"><stop offset="0" stop-color="#FFF6E6"/><stop offset="1" stop-color="#FFF6E6" stop-opacity="0"/></radialGradient>
 <linearGradient id="metal" x1="0" y1="0" x2="0" y2="1">
  <stop offset="0" stop-color="#A895C2"/><stop offset=".5" stop-color="#6E5A88"/><stop offset="1" stop-color="#4A3558"/></linearGradient>
+<linearGradient id="silver" x1="0" y1="0" x2="0" y2="1">
+ <stop offset="0" stop-color="#D9D0E6"/><stop offset=".35" stop-color="#9A88B4"/><stop offset=".55" stop-color="#E4DCEE"/><stop offset="1" stop-color="#5E4A78"/></linearGradient>
 </defs>'''
 def family(ink):
     # four generations in heart units (0..100 x 0..90), ground at y=62
@@ -28,6 +30,8 @@ def heart(cx,cy,w,mode='color'):
     k=w/100; x=cx-50*k; y=cy-45*k
     if mode=='color':
         body=f'<path d="{HEART}" fill="url(#glow)"/><path d="{HEART}" fill="url(#sun)"/>'+family(PLUM)+f'<path d="{HEART}" fill="none" stroke="{PLUM}" stroke-width="2.2"/>'
+    elif mode=='line':
+        body=f'<path d="{HEART}" fill="#fff" stroke="{PLUM}" stroke-width="3.4"/>'+family(PLUM)
     elif mode=='mono':
         body=f'<path d="{HEART}" fill="#000"/>'+family('#fff')
     else: # tiny: heart only
@@ -118,18 +122,22 @@ def symbols(mode):
     b=svg(256,256,monogram(mode,0.6,10,42),bg=None)
     return a,b
 
-out={}
-for m in ('color','mono'):
+def main():
+  out={}
+  for m in ('color','mono'):
     out[f'a-lockup-{m}']=concept_a(m); out[f'b-lockup-{m}']=concept_b(m); out[f'c-lockup-{m}']=concept_c(m)
     h,g=symbols(m); out[f'heart-symbol-{m}']=h; out[f'gl-symbol-{m}']=g
-for k,v in out.items():
+  for k,v in out.items():
     open(f'{k}.svg','w').write(v)
     cairosvg.svg2png(bytestring=v.encode(),write_to=f'{k}.png',output_width=1400 if 'lockup' in k else 512)
-print('ok')
 def g_symbol(mode):
     big='url(#metal)' if mode=='color' else '#000'
     s=0.31; p,_=txt('G',F,1000*s,128-0.5*(55+789)*s,128+0.5*(714-14)*s,big)
     return svg(256,256,p+heart(128-0.5*(55+789)*s+420*s,128+0.5*700*s-352*s,124,mode),bg=None)
-for m in ('color','mono'):
-    v=g_symbol(m); open(f'g-symbol-{m}.svg','w').write(v)
-    cairosvg.svg2png(bytestring=v.encode(),write_to=f'g-symbol-{m}.png',output_width=512)
+
+if __name__=='__main__':
+    main()
+    for m in ('color','mono'):
+        v=g_symbol(m); open(f'g-symbol-{m}.svg','w').write(v)
+        cairosvg.svg2png(bytestring=v.encode(),write_to=f'g-symbol-{m}.png',output_width=512)
+    print('ok')
